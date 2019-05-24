@@ -1,0 +1,19 @@
+t=int(input())
+#t contains no of test cases
+for i in range(t):
+    n=int(input())
+    a=list(map(int,input().split()))
+    flag=1
+    if n==1:
+        print(n)   #idf n==1 then that index will be the sol.
+    else:
+        for i in range(1,n):
+            a[i]=a[i]+a[i-1]  # total continous sum of array.
+        for i in range(1,n):
+            k=a[n-1]-a[i]   # subtract each element with the last one 
+            if k==a[i-1]:    # and check if equal to last continous sum
+                print(i+1)
+                flag=0
+                break
+        if(flag==1):   # if it comes out of loop then no sol
+            print(-1)
